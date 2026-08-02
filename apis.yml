@@ -1,26 +1,143 @@
 aid: voi
 name: Voi
-description: Voi is a company surfaced as a portfolio company of 500-global, creandum and added to the
-  API Evangelist network as a stub for enrichment. This profile is a lead awaiting the enrichment pipeline.
+description: Voi Technology is a Swedish micromobility company founded in Stockholm in 2018
+  that operates shared e-scooters and e-bikes in more than 100 cities across Europe. Voi
+  publishes a Mobility-as-a-Service partner surface for deep integrations (register users,
+  start and end rentals, pricing, vehicles, and zone areas at partners.voiapp.io), plus MDS
+  provider and flavored GBFS feeds for cities and mobility partners at mds.voiapp.io.
 url: https://raw.githubusercontent.com/api-evangelist/voi/refs/heads/main/apis.yml
+accessModel:
+  pricing: unknown
+  onboarding: self-serve
+  trial: false
+  try_now: false
+  public: false
+  label: Self-serve signup
+  confidence: medium
+  source:
+  - authentication
+  generated: '2026-07-22'
+  method: derived
+image: https://raw.githubusercontent.com/voiapp/partner-api-docs/gh-pages/assets/images/user/logo_coral.svg
 x-type: company
 x-source: vc-portfolio
 x-backed-by:
-- 500-global
 - creandum
-x-tier: stub
-x-tier-reason: portfolio-lead
+x-tier: provider
+x-tier-reason: live partner/MDS/GBFS API surface
+x-identity-note: This stub was created from a slug collision between two portfolio companies
+  named Voi. Creandum's Voi is Voi Technology (voi.com, micromobility) — the company this
+  profile now describes. 500 Global's portfolio lists a different Voi (voi.health, behavioral
+  health software); that domain no longer resolves (NXDOMAIN as of 2026-07-21) and it is not
+  part of this profile.
+x-enrichment:
+  date: '2026-07-21'
+  status: enriched
+  artifacts_added: 11
+  pass: local-v1
 specificationVersion: '0.20'
 created: '2026-07-17'
-modified: '2026-07-17'
+modified: '2026-07-21'
 tags:
-- Company
-apis: []
+- Micromobility
+- E-Scooters
+- E-Bikes
+- Mobility-as-a-Service
+- Transportation
+- GBFS
+- MDS
+- Sweden
+apis:
+- name: Voi MaaS Partner API
+  description: Deep-integration Mobility-as-a-Service API for partners to complete full user
+    journeys inside their own apps - register users, discover vehicles by zone, get per-vehicle
+    pricing, start and end rentals, and fetch zone areas (no-parking, parking-spot, slow-zone)
+    as GeoJSON. Token authentication via the X-Auth-Token header. A staging environment with
+    virtual scooters in the Berlin operational zone is provided for development.
+  humanURL: https://github.com/voiapp/partner-api-docs/blob/gh-pages/maas-pro.md
+  baseURL: https://partners.voiapp.io/v1
+  tags:
+  - Rentals
+  - Vehicles
+  - Pricing
+  - Users
+  - Zones
+  properties:
+  - type: Documentation
+    url: https://github.com/voiapp/partner-api-docs/blob/gh-pages/maas-pro.md
+- name: Voi MDS Provider API
+  description: Voi's implementation of the Open Mobility Foundation Mobility Data Specification
+    (MDS) provider API, giving cities and authorized partners historical trips, status changes,
+    and a near-real-time events feed per operational zone. Uses OAuth 2.0 client credentials
+    (token endpoint at mds.voiapp.io/token) with version negotiation through the
+    application/vnd.mds.provider+json media type (version 0.4).
+  humanURL: https://github.com/voiapp/partner-api-docs/blob/gh-pages/maas-light.md
+  baseURL: https://mds.voiapp.io
+  tags:
+  - MDS
+  - Trips
+  - Status Changes
+  - Events
+  properties:
+  - type: Documentation
+    url: https://github.com/voiapp/partner-api-docs/blob/gh-pages/maas-light.md
+- name: Voi GBFS API
+  description: A flavored implementation of the General Bikeshare Feed Specification for Voi's
+    dockless fleet, supporting the gbfs.json auto-discovery file, system_information, and
+    free_bike_status per zone, with a proprietary X-Voigbfs-Ext header extension that adds
+    vehicle battery state of charge. Authentication is shared with the MDS API (bearer token).
+  humanURL: https://github.com/voiapp/partner-api-docs/blob/gh-pages/maas-light.md
+  baseURL: https://mds.voiapp.io/v1/gbfs
+  tags:
+  - GBFS
+  - Vehicle Availability
+  - Open Data
+  properties:
+  - type: Documentation
+    url: https://github.com/voiapp/partner-api-docs/blob/gh-pages/maas-light.md
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com
 - FN: APIs.json
   email: info@apis.io
 common:
+- type: DomainSecurity
+  url: security/voi-domain-security.yml
 - type: Website
-  url: https://voi.health
+  url: https://www.voi.com
+- type: Documentation
+  url: https://github.com/voiapp/partner-api-docs
+- type: APIReference
+  url: https://github.com/voiapp/partner-api-docs/blob/gh-pages/maas-pro.md
+- type: GettingStarted
+  url: https://www.voi.com/help/getting-started
+- type: Support
+  url: https://www.voi.com/help
+- type: Blog
+  url: https://www.voi.com/blog
+- type: GitHubOrganization
+  url: https://github.com/voiapp
+- type: Pricing
+  url: https://www.voi.com/pricing-and-passes
+- type: TermsOfService
+  url: https://www.voi.com/legal/user-agreement/uk
+- type: PrivacyPolicy
+  url: https://www.voi.com/legal/privacy-policy/uk
+- type: Authentication
+  url: authentication/voi-authentication.yml
+- type: ErrorCatalog
+  url: errors/voi-error-codes.yml
+- type: Sandbox
+  url: sandbox/voi-sandbox.yml
+- type: Conventions
+  url: conventions/voi-conventions.yml
+- type: Lifecycle
+  url: lifecycle/voi-lifecycle.yml
+- type: Conformance
+  url: conformance/voi-conformance.yml
+- type: DataModel
+  url: data-model/voi-data-model.yml
+- type: Packages
+  url: packages/voi-packages.yml
+- type: LLMsTxt
+  url: llms/voi-llms.txt

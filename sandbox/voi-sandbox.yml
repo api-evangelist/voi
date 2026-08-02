@@ -1,0 +1,20 @@
+generated: '2026-07-21'
+method: searched
+source: https://github.com/voiapp/partner-api-docs/blob/gh-pages/maas-pro.md
+environments:
+- name: staging
+  description: Development for the MaaS Partner API is performed against Voi's staging
+    environment, which provides virtual scooters and relevant zone areas located in the
+    Operational Zone of Berlin.
+  test_data:
+    virtual_scooters:
+    - behavior: Unlock and lock calls always respond with success.
+    - behavior: The scooter's location never changes.
+- name: production
+  description: Once development is done, partners contact Voi's engineering point of contact
+    to receive production keys with access to the city they operate in, then test with real
+    scooters in a closed beta before general rollout.
+notes:
+- Access to staging requires partner onboarding with Voi; there is no self-service sandbox
+  signup. No test card numbers or magic payment values are published - payments are handled
+  by the partner, not by Voi.

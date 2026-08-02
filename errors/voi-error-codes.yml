@@ -1,0 +1,53 @@
+generated: '2026-07-21'
+method: searched
+source: https://github.com/voiapp/partner-api-docs/blob/gh-pages/maas-pro.md
+format: provider-error-codes
+envelope: Partner API errors are returned with an HTTP status code plus a machine-readable
+  ErrorCode string and a human-readable detail. MaaS Light (service areas) responses carry an
+  errors[] array of {code, detail} objects alongside data.
+error_codes:
+- domain: user
+  errors:
+  - {status: StatusBadRequest, detail: Invalid input, code: InvalidInput}
+  - {status: StatusBadRequest, detail: This external user id already exists, code: ExternalUserIDAlreadyExists}
+  - {status: StatusBadRequest, detail: Empty user email id, code: EmptyUserEmailID}
+  - {status: StatusInternalServerError, detail: Unable to register user, code: UserRegistrationFailed}
+  - {status: StatusInternalServerError, detail: Failed to get user, code: ErrFailedToGetUser}
+  - {status: StatusInternalServerError, detail: Failed to register user payment method, code: ErrFailedPaymentRegistration}
+- domain: rental
+  errors:
+  - {status: StatusBadRequest, detail: Invalid input, code: InvalidInput}
+  - {status: StatusBadRequest, detail: Invalid user id, code: InvalidUserId}
+  - {status: StatusBadRequest, detail: Invalid vehicle id, code: InvalidVehicleId}
+  - {status: StatusBadRequest, detail: Invalid rental id, code: InvalidRentalID}
+  - {status: StatusBadRequest, detail: User does not exist, code: UserNotFound}
+  - {status: StatusBadRequest, detail: This user already has a rental, code: RentalAlreadyExists}
+  - {status: StatusNotFound, detail: Rental ID does not exist, code: RentalIDDoesNotExist}
+  - {status: StatusBadRequest, detail: Rental is already ended for this rental id, code: RentalAlreadyEnded}
+  - {status: StatusInternalServerError, detail: Unable to start rental, code: FailedToStartRental}
+  - {status: StatusInternalServerError, detail: Unable to end rental, code: FailedToEndRental}
+  - {status: StatusBadRequest, detail: Vehicle not found, code: VehicleNotFound}
+  - {status: StatusInternalServerError, detail: Failed to fetch vehicle, code: FailedToFetchVehicle}
+  - {status: StatusInternalServerError, detail: Failed to update vehicle, code: FailedToUpdateVehicle}
+  - {status: StatusInternalServerError, detail: Unable to lock vehicle, code: FailedToLockVehicle}
+  - {status: StatusInternalServerError, detail: Unable to unlock vehicle, code: FailedToUnlockVehicle}
+  - {status: StatusInternalServerError, detail: Unable to calculate end rental price, code: FailedToCalculatePrice}
+  - {status: StatusInternalServerError, detail: Unable to validate parking area, code: FailedToValidateParking}
+  - {status: StatusInternalServerError, detail: This is no parking area - cannot end rental, code: FailedToEndRentalNoParking}
+  - {status: StatusInternalServerError, detail: Unable to validate short rental, code: FailedToValidateShortRental}
+  - {status: StatusNotFound, detail: Unable to find active rental, code: ActiveRentalNotFound}
+- domain: pricing
+  errors:
+  - {status: StatusBadRequest, detail: Invalid vehicle id, code: InvalidVehicleId}
+- domain: vehicle
+  errors:
+  - {status: StatusBadRequest, detail: Vehicle code was empty, code: EmptyVehicleCode}
+  - {status: StatusBadRequest, detail: Vehicle id was empty, code: EmptyVehicleID}
+- domain: zone
+  errors:
+  - {status: StatusBadRequest, detail: Zone id was empty, code: EmptyZoneID}
+notes:
+- Error detail strings in the source docs are concatenated without spaces (e.g.
+  "Thisuseralreadyhasarental"); spacing has been restored here for readability without
+  changing the codes.
+- The API does not use RFC 9457 application/problem+json.

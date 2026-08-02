@@ -1,0 +1,53 @@
+generated: '2026-07-21'
+method: searched
+source: https://github.com/voiapp/partner-api-docs
+authentication:
+  style: X-Auth-Token header token for the MaaS Partner API; OAuth 2.0 client credentials with
+    Bearer tokens (900s expiry) for MDS and GBFS.
+  artifact: authentication/voi-authentication.yml
+envelope:
+  style: JSON:API-flavored resource envelope. Successful responses wrap resources as
+    data.{id, type, attributes} (type is user, rental, pricing, vehicle, or area); list
+    responses use a data array. MaaS Light responses add last_updated and ttl plus an
+    errors[] array of {code, detail}.
+identifiers:
+  style: UUID version 4 for users, rentals, vehicles, and pricing. Vehicles also carry a
+    four-character alphanumeric vehicleCode printed on the physical vehicle (QR code).
+money:
+  style: Amounts are integers in minor units (subunits, e.g. cents) with an ISO 4217 alphabetic
+    currency code and separate integer VAT field. Rental cost totals include VAT; pricing
+    (pricePerMinute, startPrice) excludes VAT.
+timestamps:
+  style: RFC 3339 in UTC for rental startedAt/endedAt; POSIX timestamps for GBFS last_updated;
+    MDS trips/status_changes take ISO 8601 UTC hour parameters and events take millisecond
+    epoch ranges.
+idempotency:
+  supported: false
+  note: The docs explicitly warn that user registration has no uniqueness constraints and
+    idempotency is NOT guaranteed - two identical register-user requests create two separate
+    users. No Idempotency-Key style header is offered anywhere in the API.
+pagination:
+  style: none documented. Vehicle discovery is scoped by zoneID; MDS history endpoints are
+    scoped by hour (end_time/event_time) or millisecond ranges rather than paginated.
+versioning:
+  style: URI-path v1 for the Partner API (partners.voiapp.io/v1) with a published commitment
+    not to make breaking changes; MDS uses media-type versioning via
+    Accept application/vnd.mds.provider+json;version=0.4.
+  artifact: lifecycle/voi-lifecycle.yml
+extensions:
+  style: GBFS responses can be extended beyond the standard with the X-Voigbfs-Ext request
+    header (e.g. X-Voigbfs-Ext Battery adds a battery state-of-charge field to
+    free_bike_status).
+errors:
+  style: HTTP status plus machine-readable ErrorCode strings and human-readable detail; no
+    RFC 9457 problem+json.
+  artifact: errors/voi-error-codes.yml
+geodata:
+  style: WGS 84 decimal-degree latitude/longitude; zone areas are GeoJSON MultiPolygon
+    geometries typed as operations, no-parking, parking-spot, or slow-zone.
+rate_limiting:
+  style: none documented.
+payments:
+  style: Voi calculates ride price and returns it at end-rental; the partner charges the end
+    user and handles refunds and fraud prevention. Rides under 100 meters or 2 minutes are
+    free (state ENDED_WITH_NO_CHARGE).

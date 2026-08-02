@@ -1,0 +1,38 @@
+generated: '2026-07-21'
+method: searched
+source: https://github.com/voiapp/partner-api-docs
+standards:
+- id: mds-provider-0.4
+  conforms: true
+  evidence: Voi implements the Open Mobility Foundation Mobility Data Specification provider
+    API version 0.4 (trips, status_changes, events) at mds.voiapp.io, and is listed in the
+    OMF mobility-data-specification providers.csv registry with mds_api_url mds.voiapp.io and
+    gbfs_api_url mds.voiapp.io/v1/gbfs.
+- id: gbfs
+  conforms: partial
+  evidence: Voi provides a flavored GBFS implementation for its dockless fleet supporting only
+    gbfs.json, system_information.json, and free_bike_status.json, with a proprietary
+    X-Voigbfs-Ext battery extension; other GBFS files do not apply.
+- id: oauth2
+  conforms: true
+  evidence: MDS/GBFS authentication uses the OAuth 2.0 client_credentials grant (RFC 6749
+    section 4.4) against https://mds.voiapp.io/token.
+- id: geojson
+  conforms: true
+  evidence: Zone area geometries are returned as GeoJSON MultiPolygon objects.
+- id: iso4217-minor-units
+  conforms: true
+  evidence: All monetary amounts are integers in minor units with ISO 4217 alphabetic currency
+    codes.
+- id: rfc9457-problem-details
+  conforms: false
+  evidence: Errors are returned as provider-specific ErrorCode strings, not
+    application/problem+json.
+- id: json-api
+  conforms: false
+  evidence: Responses use a JSON:API-flavored data.{id,type,attributes} envelope but the API
+    does not claim or implement the full JSON:API specification.
+- id: idempotency
+  conforms: false
+  evidence: Docs explicitly state idempotency is not guaranteed on user registration and no
+    idempotency-key mechanism exists.

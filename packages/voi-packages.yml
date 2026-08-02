@@ -1,0 +1,10 @@
+generated: '2026-07-21'
+method: searched
+packages: []
+notes:
+- Searched npm (registry search for voiapp / voi scooters), PyPI, and Voi's two GitHub
+  organizations (voiapp, voi-oss) on 2026-07-21. Voi publishes no first-party client
+  libraries or SDKs for its partner, MDS, or GBFS APIs. The voi-oss org contains internal
+  platform tooling (Go worker lifecycle, dbt utilities, Terraform modules) and voiapp
+  contains mobile app infrastructure (iOS Viper/network layers) - none are API client SDKs.
+- Empty result recorded as valid data; no SDKs pointer is wired in apis.yml.

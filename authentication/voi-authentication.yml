@@ -1,0 +1,47 @@
+generated: '2026-07-21'
+method: searched
+source: https://github.com/voiapp/partner-api-docs/blob/gh-pages/maas-pro.md
+docs: https://github.com/voiapp/partner-api-docs
+summary:
+  types:
+  - apiKey
+  - oauth2
+  api_key_in:
+  - header
+  oauth2_flows:
+  - clientCredentials
+schemes:
+- name: PartnerToken
+  type: apiKey
+  in: header
+  parameter: X-Auth-Token
+  description: MaaS Partner API (partners.voiapp.io/v1) endpoints are protected with token
+    authentication using the X-Auth-Token request header, with a token issued by Voi when a
+    partner signs up. Production keys are issued by Voi's engineering point of contact after
+    development against staging is complete.
+  applies_to:
+  - Voi MaaS Partner API
+  sources:
+  - https://github.com/voiapp/partner-api-docs/blob/gh-pages/maas-pro.md
+- name: MDSClientCredentials
+  type: oauth2
+  description: MDS and GBFS endpoints use OAuth 2.0 client credentials (two-legged OAuth,
+    RFC 6749 section 4.4). POST basic-auth user:password with grant_type=client_credentials
+    to the token endpoint; the response carries an access_token with expires_in 900 seconds
+    and token_type bearer. The token is then required as Bearer authentication on all MDS and
+    GBFS calls (docs also show an X-Auth-Token header form for GBFS requests).
+  flows:
+  - flow: clientCredentials
+    tokenUrl: https://mds.voiapp.io/token
+    scopes: []
+  applies_to:
+  - Voi MDS Provider API
+  - Voi GBFS API
+  sources:
+  - https://github.com/voiapp/partner-api-docs/blob/gh-pages/maas-light.md
+notes:
+- Live probes on 2026-07-21 confirm the auth gates - partners.voiapp.io/v1/vehicles returns
+  401 without a token, mds.voiapp.io/v1/gbfs returns 401, and GET mds.voiapp.io/token returns
+  405 (POST-only), so the hosts and auth model documented above are still in service.
+- No OAuth scopes are documented for the client-credentials flow, so no scopes/ artifact is
+  produced for this provider.

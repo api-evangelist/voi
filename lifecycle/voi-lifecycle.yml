@@ -1,0 +1,27 @@
+generated: '2026-07-21'
+method: searched
+source: https://github.com/voiapp/partner-api-docs/blob/gh-pages/maas-pro.md
+versioning:
+  partner_api:
+    scheme: uri-path
+    current: v1
+    stability: Voi commits to supporting the current feature set for partners and not
+      performing breaking changes to this version of the API, though new endpoints may be
+      added.
+  mds:
+    scheme: media-type
+    current: '0.4'
+    header: Accept application/vnd.mds.provider+json;version=0.4
+    note: Current MDS implementation only supports version 0.4.
+deprecation:
+  policy_url: null
+  sunset_header: false
+  note: No public deprecation policy or RFC 8594 Sunset header support is documented.
+sla: null
+status_page: null
+notes:
+- The developer docs host docs.voiscooters.com no longer resolves (checked 2026-07-21); the
+  documentation source of record is the voiapp/partner-api-docs GitHub repository (gh-pages,
+  last pushed 2024-01-10). The API hosts themselves remain live - partners.voiapp.io and
+  mds.voiapp.io both answer with auth challenges (401/405).
+- status.voi.com returned HTTP 503 on 2026-07-21 and no public status page is advertised.

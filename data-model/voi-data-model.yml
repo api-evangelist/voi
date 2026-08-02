@@ -1,0 +1,37 @@
+generated: '2026-07-21'
+method: derived
+source: https://github.com/voiapp/partner-api-docs/blob/gh-pages/maas-pro.md
+entities:
+- name: user
+  id_format: UUID v4
+  fields: [id, email, firstName, lastName, phoneNumber, externalId]
+  note: externalId links the user to the partner's own system.
+- name: rental
+  id_format: UUID v4
+  fields: [id, rentalDurationMin, cost, state, startedAt, endedAt, userStartLocation,
+    userEndLocation, vehicle, vehicleStartLocation, vehicleEndLocation]
+  states: [RUNNING, ENDED, ENDED_WITH_NO_CHARGE, ENDED_INTERNALLY]
+- name: vehicle
+  id_format: UUID v4
+  fields: [id, batteryLevel, location, code]
+  note: code is a four-character alphanumeric identifier printed on the physical vehicle.
+- name: pricing
+  id_format: UUID v4 (vehicle id)
+  fields: [id, currency, pricePerMinute, startPrice, vat]
+- name: zone
+  id_format: integer/string zone id
+  fields: [id, areas]
+  note: An operational zone is a metropolitan area or city.
+- name: area
+  fields: [area_type, geometry]
+  area_types: [operations, no-parking, parking-spot, slow-zone]
+relationships:
+- {from: rental, to: user, kind: belongs_to, via: userId}
+- {from: rental, to: vehicle, kind: has_one, via: vehicleId}
+- {from: pricing, to: vehicle, kind: belongs_to, via: id}
+- {from: vehicle, to: zone, kind: belongs_to, via: zoneID}
+- {from: zone, to: area, kind: has_many, via: areas}
+- {from: user, to: rental, kind: has_many, via: '/v1/rental/user/{id}'}
+constraints:
+- A user can only rent one scooter at a time; pre-booking is not possible.
+- A zone can have either no-parking or parking-spot areas, never both.
