@@ -1,10 +1,10 @@
 aid: voi
 name: Voi
-description: Voi Technology is a Swedish micromobility company founded in Stockholm in 2018
-  that operates shared e-scooters and e-bikes in more than 100 cities across Europe. Voi
-  publishes a Mobility-as-a-Service partner surface for deep integrations (register users,
-  start and end rentals, pricing, vehicles, and zone areas at partners.voiapp.io), plus MDS
-  provider and flavored GBFS feeds for cities and mobility partners at mds.voiapp.io.
+description: Voi Technology is a Swedish micromobility company founded in Stockholm in 2018 that operates
+  shared e-scooters and e-bikes in more than 100 cities across Europe. Voi publishes a Mobility-as-a-Service
+  partner surface for deep integrations (register users, start and end rentals, pricing, vehicles, and
+  zone areas at partners.voiapp.io), plus MDS provider and flavored GBFS feeds for cities and mobility
+  partners at mds.voiapp.io.
 url: https://raw.githubusercontent.com/api-evangelist/voi/refs/heads/main/apis.yml
 accessModel:
   pricing: unknown
@@ -25,11 +25,10 @@ x-backed-by:
 - creandum
 x-tier: provider
 x-tier-reason: live partner/MDS/GBFS API surface
-x-identity-note: This stub was created from a slug collision between two portfolio companies
-  named Voi. Creandum's Voi is Voi Technology (voi.com, micromobility) — the company this
-  profile now describes. 500 Global's portfolio lists a different Voi (voi.health, behavioral
-  health software); that domain no longer resolves (NXDOMAIN as of 2026-07-21) and it is not
-  part of this profile.
+x-identity-note: This stub was created from a slug collision between two portfolio companies named Voi.
+  Creandum's Voi is Voi Technology (voi.com, micromobility) — the company this profile now describes.
+  500 Global's portfolio lists a different Voi (voi.health, behavioral health software); that domain no
+  longer resolves (NXDOMAIN as of 2026-07-21) and it is not part of this profile.
 x-enrichment:
   date: '2026-07-21'
   status: enriched
@@ -37,7 +36,7 @@ x-enrichment:
   pass: local-v1
 specificationVersion: '0.20'
 created: '2026-07-17'
-modified: '2026-07-21'
+modified: '2026-08-08'
 tags:
 - Micromobility
 - E-Scooters
@@ -49,11 +48,11 @@ tags:
 - Sweden
 apis:
 - name: Voi MaaS Partner API
-  description: Deep-integration Mobility-as-a-Service API for partners to complete full user
-    journeys inside their own apps - register users, discover vehicles by zone, get per-vehicle
-    pricing, start and end rentals, and fetch zone areas (no-parking, parking-spot, slow-zone)
-    as GeoJSON. Token authentication via the X-Auth-Token header. A staging environment with
-    virtual scooters in the Berlin operational zone is provided for development.
+  description: Deep-integration Mobility-as-a-Service API for partners to complete full user journeys
+    inside their own apps - register users, discover vehicles by zone, get per-vehicle pricing, start
+    and end rentals, and fetch zone areas (no-parking, parking-spot, slow-zone) as GeoJSON. Token authentication
+    via the X-Auth-Token header. A staging environment with virtual scooters in the Berlin operational
+    zone is provided for development.
   humanURL: https://github.com/voiapp/partner-api-docs/blob/gh-pages/maas-pro.md
   baseURL: https://partners.voiapp.io/v1
   tags:
@@ -66,11 +65,10 @@ apis:
   - type: Documentation
     url: https://github.com/voiapp/partner-api-docs/blob/gh-pages/maas-pro.md
 - name: Voi MDS Provider API
-  description: Voi's implementation of the Open Mobility Foundation Mobility Data Specification
-    (MDS) provider API, giving cities and authorized partners historical trips, status changes,
-    and a near-real-time events feed per operational zone. Uses OAuth 2.0 client credentials
-    (token endpoint at mds.voiapp.io/token) with version negotiation through the
-    application/vnd.mds.provider+json media type (version 0.4).
+  description: Voi's implementation of the Open Mobility Foundation Mobility Data Specification (MDS)
+    provider API, giving cities and authorized partners historical trips, status changes, and a near-real-time
+    events feed per operational zone. Uses OAuth 2.0 client credentials (token endpoint at mds.voiapp.io/token)
+    with version negotiation through the application/vnd.mds.provider+json media type (version 0.4).
   humanURL: https://github.com/voiapp/partner-api-docs/blob/gh-pages/maas-light.md
   baseURL: https://mds.voiapp.io
   tags:
@@ -82,10 +80,10 @@ apis:
   - type: Documentation
     url: https://github.com/voiapp/partner-api-docs/blob/gh-pages/maas-light.md
 - name: Voi GBFS API
-  description: A flavored implementation of the General Bikeshare Feed Specification for Voi's
-    dockless fleet, supporting the gbfs.json auto-discovery file, system_information, and
-    free_bike_status per zone, with a proprietary X-Voigbfs-Ext header extension that adds
-    vehicle battery state of charge. Authentication is shared with the MDS API (bearer token).
+  description: A flavored implementation of the General Bikeshare Feed Specification for Voi's dockless
+    fleet, supporting the gbfs.json auto-discovery file, system_information, and free_bike_status per
+    zone, with a proprietary X-Voigbfs-Ext header extension that adds vehicle battery state of charge.
+    Authentication is shared with the MDS API (bearer token).
   humanURL: https://github.com/voiapp/partner-api-docs/blob/gh-pages/maas-light.md
   baseURL: https://mds.voiapp.io/v1/gbfs
   tags:
@@ -141,3 +139,31 @@ common:
   url: packages/voi-packages.yml
 - type: LLMsTxt
   url: llms/voi-llms.txt
+- type: Portal
+  url: https://docs.voiscooters.com/
+- type: SourceCode
+  url: https://github.com/voiapp/mobility-data-specification
+- type: Company
+  url: https://www.voi.com/about
+- type: About
+  url: https://careers.voi.com/pages/our-voiage-so-far
+- type: Careers
+  url: https://careers.voi.com/
+- type: PressRoom
+  url: https://www.voi.com/newsroom
+- type: Help
+  url: https://www.voi.com/support
+- type: Contact
+  url: https://www.voi.com/contact
+- type: Crunchbase
+  url: https://www.crunchbase.com/organization/voi-technology
+- type: LinkedIn
+  url: https://www.linkedin.com/company/voi-technology/
+- type: Twitter
+  url: https://twitter.com/voiscooters
+- type: Instagram
+  url: https://www.instagram.com/voiscooters/
+- type: YouTube
+  url: https://www.youtube.com/@VoiTechnology
+x-merged-from:
+- voi-app
