@@ -99,6 +99,9 @@ maintainers:
 - FN: APIs.json
   email: info@apis.io
 common:
+- type: License
+  name: CC0-1.0
+  url: https://github.com/voiapp/mobility-data-specification/blob/dev/LICENSE
 - type: DomainSecurity
   url: security/voi-domain-security.yml
 - type: Website
