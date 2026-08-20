@@ -41,6 +41,15 @@ tags:
 - Micromobility
 - E-Scooters
 - E-Bikes
+- Mobility As A Service
+- Transportation
+- GBFS
+- MDS
+- Sweden
+tags_raw:
+- Micromobility
+- E-Scooters
+- E-Bikes
 - Mobility-as-a-Service
 - Transportation
 - GBFS
@@ -59,6 +68,12 @@ apis:
   - Rentals
   - Vehicles
   - Pricing
+  - User
+  - Zones
+  tags_raw:
+  - Rentals
+  - Vehicles
+  - Pricing
   - Users
   - Zones
   properties:
@@ -72,6 +87,11 @@ apis:
   humanURL: https://github.com/voiapp/partner-api-docs/blob/gh-pages/maas-light.md
   baseURL: https://mds.voiapp.io
   tags:
+  - MDS
+  - Trips
+  - Status Changes
+  - Event
+  tags_raw:
   - MDS
   - Trips
   - Status Changes
