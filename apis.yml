@@ -6,6 +6,19 @@ description: Voi Technology is a Swedish micromobility company founded in Stockh
   zone areas at partners.voiapp.io), plus MDS provider and flavored GBFS feeds for cities and mobility
   partners at mds.voiapp.io.
 url: https://raw.githubusercontent.com/api-evangelist/voi/refs/heads/main/apis.yml
+deliveryModel:
+  model: saas
+  license: CC0-1.0
+  open_source: false
+  commercial: true
+  callable_host: false
+  label: Hosted service · you call their endpoint
+  confidence: medium
+  source:
+  - license
+  - pricing
+  generated: '2026-08-28'
+  method: derived
 accessModel:
   pricing: unknown
   onboarding: self-serve
