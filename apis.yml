@@ -59,6 +59,7 @@ tags:
 - GBFS
 - MDS
 - Sweden
+- Mobility
 tags_raw:
 - Micromobility
 - E-Scooters
@@ -68,6 +69,7 @@ tags_raw:
 - GBFS
 - MDS
 - Sweden
+- Mobility
 apis:
 - name: Voi MaaS Partner API
   description: Deep-integration Mobility-as-a-Service API for partners to complete full user journeys
