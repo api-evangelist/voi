@@ -1,0 +1,73 @@
+edges:
+- partner_name: GBFS (MobilityData systems.csv)
+  partner: null
+  partner_match: register
+  type: register
+  direction: partner-built
+  evidence: https://api.voiapp.io/gbfs/be/7a4cb689-a2ee-409d-a5fe-49d2e8d50717/v2/gbfs.json
+  category: GBFS shared-mobility feed
+  channel: standard-directory
+  relationship: standard-participant
+  contract_reference:
+    register: GBFS systems.csv (github.com/MobilityData/gbfs)
+    standard: GBFS (General Bikeshare Feed Specification)
+    spec_file: null
+    role: gbfs-system-operator
+    registered_name: VOI Antwerp
+    register_id: voi_Antwerp
+    website: https://www.voi.com/
+    matched_domain: voi.com
+    matched_by: domain
+    domain_source: operator website column
+    versions_supported: &id001
+    - '2.3'
+    - '3.0'
+    systems_sample:
+    - voi_Antwerp
+    - voi_Grand_Paris_Seine_et_Oise
+    - voi_Grenoble
+    - voi_Le_Havre
+    - voi_Marseille
+    - voi_Paris
+    signal_note: 'participation only: GBFS has no conformance register, so no certified_products; system counts,
+      cities and versions are context, never counted'
+    detected_by: sweep-transit-mobility.py
+    detected: '2026-10-18'
+  detected_by: sweep-transit-mobility.py
+  first_seen: '2026-10-18'
+- partner_name: GBFS (MobilityData systems.csv)
+  partner: null
+  partner_match: register
+  type: register
+  direction: partner-built
+  evidence: https://api.voiapp.io/gbfs/be/7a4cb689-a2ee-409d-a5fe-49d2e8d50717/v2/gbfs.json
+  category: GBFS shared-mobility feed
+  channel: standard-directory
+  relationship: compatible
+  shape: gbfs
+  evidence_kind: standard-register
+  degree: published
+  report_only: true
+  note: publishes a GBFS auto-discovery feed listed in MobilityData's systems.csv (no anchor repo)
+  contract_reference:
+    register: GBFS systems.csv (github.com/MobilityData/gbfs)
+    spec_file: null
+    standard: GBFS
+    role: gbfs-system-operator
+    registered_name: VOI Antwerp
+    matched_domain: voi.com
+    versions_supported: *id001
+    detected_by: sweep-transit-mobility.py
+    detected: '2026-10-18'
+  detected_by: sweep-transit-mobility.py
+  first_seen: '2026-10-18'
+generated: '2026-10-18'
+method: searched
+source:
+- https://files.mobilitydatabase.org/feeds_v2.csv
+- https://github.com/MobilityData/gbfs/blob/master/systems.csv
+- https://maas-alliance.eu/
+checked:
+- https://files.mobilitydatabase.org/feeds_v2.csv
+- https://github.com/MobilityData/gbfs/blob/master/systems.csv
+- https://maas-alliance.eu/
