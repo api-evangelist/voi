@@ -61,6 +61,35 @@ edges:
     detected: '2026-10-18'
   detected_by: sweep-transit-mobility.py
   first_seen: '2026-10-18'
+- partner_name: Open Mobility Foundation MDS registered providers
+  partner: null
+  partner_match: register
+  type: register
+  channel: standard-directory
+  relationship: standard-participant
+  direction: partner-built
+  evidence: https://raw.githubusercontent.com/openmobilityfoundation/mobility-data-specification/main/providers.csv
+  category: MDS provider registration
+  contract_reference:
+    register: Open Mobility Foundation MDS registered providers
+    standard: Mobility Data Specification (MDS)
+    spec_file: null
+    role: mds-provider
+    registrations:
+    - registered_name: VOI
+      mode: micromobility
+      provider_id: 1f129e3f-158f-4df5-af9c-a80de238e334
+      matched_domain: voiscooters.com
+      matched_by: domain+local-verified
+      mds_api_host: mds.voiapp.io
+      gbfs_api_host: mds.voiapp.io
+      evidence_url: https://github.com/openmobilityfoundation/mobility-data-specification/blob/main/providers.csv
+    signal_note: 'participation only: an OMF provider registration (provider_id issued); the OMF publishes no MDS
+      conformance certification'
+    detected_by: sweep-open-mobility-foundation-mds.py
+    detected: '2026-10-22'
+  detected_by: sweep-open-mobility-foundation-mds.py
+  first_seen: '2026-10-22'
 generated: '2026-10-18'
 method: searched
 source:
@@ -71,3 +100,6 @@ checked:
 - https://files.mobilitydatabase.org/feeds_v2.csv
 - https://github.com/MobilityData/gbfs/blob/master/systems.csv
 - https://maas-alliance.eu/
+- https://openmobilityfoundation.org
+- https://raw.githubusercontent.com/openmobilityfoundation/mobility-data-specification/main/agencies.csv
+- https://raw.githubusercontent.com/openmobilityfoundation/mobility-data-specification/main/providers.csv

@@ -39,3 +39,32 @@
     detected: '2026-10-18'
   status: not-a-workflow
   arazzo: null
+- slug: voi-open-mobility-foundation-mds-registered-providers
+  label: Open Mobility Foundation MDS registered providers
+  partner_name: Open Mobility Foundation MDS registered providers
+  category: MDS provider registration
+  type: register
+  channel: standard-directory
+  evidence: https://raw.githubusercontent.com/openmobilityfoundation/mobility-data-specification/main/providers.csv
+  source: edge
+  relationship: standard-participant
+  contract_reference:
+    register: Open Mobility Foundation MDS registered providers
+    standard: Mobility Data Specification (MDS)
+    spec_file: null
+    role: mds-provider
+    registrations:
+    - registered_name: VOI
+      mode: micromobility
+      provider_id: 1f129e3f-158f-4df5-af9c-a80de238e334
+      matched_domain: voiscooters.com
+      matched_by: domain+local-verified
+      mds_api_host: mds.voiapp.io
+      gbfs_api_host: mds.voiapp.io
+      evidence_url: https://github.com/openmobilityfoundation/mobility-data-specification/blob/main/providers.csv
+    signal_note: 'participation only: an OMF provider registration (provider_id issued); the OMF publishes no MDS
+      conformance certification'
+    detected_by: sweep-open-mobility-foundation-mds.py
+    detected: '2026-10-22'
+  status: not-a-workflow
+  arazzo: null
